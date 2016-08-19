@@ -1,0 +1,137 @@
+<html >
+<head>
+<title> new document </title>
+<meta name="generator" content="editplus" />
+<meta name="author" content="" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<style type="text/css">
+/*所有主流浏览器都支持 :after 伪元素。*/
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clearfix{*+height:1%;}/*不知道有什么用处，不加ie7也没有问题*/
+.box{ background:#111;width:500px; position:relative;}
+.l{float:left; background:#333;width:200px; height:100px;}
+.r{float:right;background:#666;width:200px; height:200px;}
+.s{width:100px; height:100px;background:#999;position:absolute;right:-50px;;}
+</style>
+<style type="text/css">
+.arrow-up {
+width: 0;
+height: 0;
+border-left: 5px solid transparent;
+border-right: 5px solid transparent;
+_border-left: 5px solid white;
+_border-right: 5px solid white;
+border-bottom: 5px solid black;
+overflow:hidden;
+}
+.arrow-down {
+width: 0;
+height: 0;
+border-left: 20px solid transparent;
+border-right: 20px solid transparent;
+_border-left: 20px solid white;
+_border-right: 20px solid white;
+border-top: 20px solid #f00;
+overflow:hidden;
+}
+.arrow-right {
+width: 0;
+height: 0;
+border-top: 60px solid transparent;
+border-bottom: 60px solid transparent;
+_border-top: 60px solid white;
+_border-bottom: 60px solid white;
+border-left: 60px solid green;
+overflow:hidden;
+}
+.arrow-left {
+width: 0;
+height: 0;
+border-top: 10px solid transparent;
+border-bottom: 10px solid transparent;
+_border-top: 10px solid white;
+_border-bottom: 10px solid white;
+border-right:10px solid blue;
+overflow:hidden;
+}
+</style>
+<div class="box clearfix">
+<div class="l">left</div>
+<div class="r">right</div>
+<div class="s">absolute</div>
+</div>
+
+<div class="arrow-up"></div>
+<div class="arrow-down"></div>
+<div class="arrow-left"></div>
+<div class="arrow-right"></div>
+
+ <img src="actionServlet"  id="imga"/> <button id="a" onclick="reload()" >换一张</button>
+ <script>
+ function reload(){document.getElementById('imga').src='http://localhost:8080/test/actionServlet?date='+new Date().toString();}</script> 
+<form action="http://localhost:8080/test/actionServlet">
+<button type="submit">submit</button>
+</form>
+</body>
+</html> 
+
+
+<html> 
+<title>js打印</title> 
+<head></head><body> 
+<input id=btnprint type=button value=打印 onclick=javascript:window.print(); /> 
+
+<input id=btnprint type=button value=打印预览 onclick=preview(1) /> 
+<style type=text/css media=print> 
+.noprint{display : none } 
+</style> 
+
+
+<p class=noprint>不需要打印的地方</p> 
+
+<script> 
+function preview(oper) 
+{ 
+if (oper < 10) 
+{ 
+bdhtml=window.document.body.innerhtml;//获取当前页的html代码 
+sprnstr=<!--startprint+oper+-->;//设置打印开始区域 
+eprnstr=<!--endprint+oper+-->;//设置打印结束区域 
+prnhtml=bdhtml.substring(bdhtml.indexof(sprnstr)+18); //从开始代码向后取html 
+
+prnhtml=prnhtml.substring(0,prnhtml.indexof(eprnstr));//从结束代码向前取html 
+window.document.body.innerhtml=prnhtml; 
+window.print(); 
+window.document.body.innerhtml=bdhtml; 
+} else { 
+window.print(); 
+} 
+} 
+</script> 
+<p>xxxxx</p> 
+<!--startprint1-->要打印的内容<!--endprint1--> 
+</body> 
+</html> 
+
+
+<html>
+<head>
+<script src="jquery-1.3.2.min.js" type="text/javascript"></script>
+</head>
+<body>
+<input type="checkbox" name="chk_list" id="chk_list_1" value="1" />1<br />
+<input type="checkbox" name="chk_list" id="chk_list_2" value="2" />2<br />
+<input type="checkbox" name="chk_list" id="chk_list_3" value="3" />3<br />
+<input type="checkbox" name="chk_list" id="chk_list_4" value="4" />4<br />
+<input type="checkbox" name="chk_all" id="chk_all" />全选/取消全选
+<script type="text/javascript">
+$("#chk_all").click(function(){
+     $("input[name='chk_list']").attr("checked",$(this).attr("checked"));
+});
+</script>
+</body>
+</html>
